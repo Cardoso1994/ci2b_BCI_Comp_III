@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+import pathlib
 
 import matplotlib.pyplot as plt
 import mne
@@ -10,11 +11,11 @@ import numpy as np
 import scipy
 
 # global variables
-DATA_DIR = os.path.join("..", "BCI_Comp_III_Wads_2004")
+DATA_DIR = pathlib.Path("..", "..", "BCI_Comp_III_Wads_2004")
 SUBJECT = "B"  # "A" or "B"
 SET = "Train"  # "Train" or "Test"
 DATA_FILE = f"Subject_{SUBJECT}_{SET}.mat"
-DATA_PATH = os.path.join(DATA_DIR, DATA_FILE)
+DATA_PATH = pathlib.Path(DATA_DIR, DATA_FILE)
 
 # fmt: off
 CHANNELS_NAMES = [
@@ -87,7 +88,7 @@ def main() -> None:
     signal = np.moveaxis(signal, 1, 2)
     print(signal.shape)
     epochs = mne.EpochsArray(signal, info)
-    epochs.plot()
+    epochs.plot(picks=["Oz", "O1", "O2"])
     plt.show()
 
     bad_epochs = []

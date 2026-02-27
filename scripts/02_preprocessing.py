@@ -17,10 +17,10 @@ from eeg_preproc import find_bad_channels
 from eeg_preproc import find_flat_channels
 
 # global variables
-DATA_DIR: pathlib.Path = pathlib.Path("..", "..", "BCI_Comp_III_Wads_2004")
+DATA_DIR: pathlib.Path = pathlib.Path("..", "..", "gigaScienceDataset")
 SUBJECT: str = "B"  # "A" or "B"
 SET: str = "Train"  # "Train" or "Test"
-DATA_FILE: str = f"Subject_{SUBJECT}_{SET}.mat"
+DATA_FILE: str = f"sess02_subj54_EEG_ERP.mat"
 DATA_PATH: pathlib.Path = pathlib.Path(DATA_DIR, DATA_FILE)
 
 # fmt: off

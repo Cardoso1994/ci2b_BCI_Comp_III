@@ -1,14 +1,25 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/eeg_preproc"]
+
 [project]
 name = "mcic"
 version = "0.1.0"
 description = "Add your description here"
-readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "meegkit @ git+https://github.com/nbara/python-meegkit.git@master",
     "ipython>=9.10.0",
     "jupyter>=1.1.1",
     "matplotlib>=3.10.8",
     "mne>=1.11.0",
     "numpy>=2.4.2",
+    "pyprep>=0.4.0",
     "scipy>=1.17.1",
 ]
